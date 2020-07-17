@@ -15,9 +15,10 @@ class CreateLinksTable extends Migration
     {
         Schema::create('links', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('solution_id')->constrained()->onDelete('cascade');
             $table->string('url');
-            $table->text('descripcion')->nullable();
-            $table->timestamps();
+            $table->text('description')->nullable();            
+            $table->timestamps();            
         });
     }
 

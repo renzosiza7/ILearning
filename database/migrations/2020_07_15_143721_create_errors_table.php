@@ -15,8 +15,9 @@ class CreateErrorsTable extends Migration
     {
         Schema::create('errors', function (Blueprint $table) {
             $table->id();
-            $table->text('descripcion');
-            $table->timestamps();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->text('description');
+            $table->timestamps();            
         });
     }
 
