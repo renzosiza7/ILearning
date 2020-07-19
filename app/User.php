@@ -36,4 +36,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    //one user has many errors
+    public function errors()
+    {
+        return $this->hasMany('App\Error');
+    }
 }
