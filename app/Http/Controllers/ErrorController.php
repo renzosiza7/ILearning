@@ -12,9 +12,8 @@ class ErrorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
-    {
-        dd($id);
+    public function index()
+    {      
         return Error::all();
     }
 

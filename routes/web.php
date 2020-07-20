@@ -23,4 +23,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 //Errors
-Route::get('/error/{id}', 'ErrorController@index')->name('error');
+Route::get('/error', 'ErrorController@index')->name('error')->middleware('can:admin');
