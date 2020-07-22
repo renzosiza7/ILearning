@@ -8,7 +8,7 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
-
+import VueRouter from 'vue-router'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
@@ -16,6 +16,15 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 Vue.use(BootstrapVue)
 // Optionally install the BootstrapVue icon components plugin
 Vue.use(IconsPlugin)
+
+Vue.use(VueRouter)
+
+import config from './config'
+import routes from './routes'
+
+const router = new VueRouter({
+    routes // short for `routes: routes`
+})
 
 /**
  * The following block of code may be used to automatically register your
@@ -38,4 +47,8 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 const app = new Vue({
     el: '#app',
+    router,
+    data: {                      
+        ruta: config.API_URL
+    }, 
 });
