@@ -1,6 +1,15 @@
 <template>
   <b-container>      
-    <h3 class="text-unsa mt-3">Incidencias</h3>
+    <div class="row mt-3">
+      <div class="col-lg-6">
+          <h3 class="text-info">Incidencias</h3>
+      </div>
+      <div class="col-lg-6">
+          <button class="btn btn-info float-right" @click="create">
+                <i class="fa fa-plus"></i>&nbsp;Nuevo Registro
+          </button>
+      </div>
+    </div>
     <hr class="bg-secondary">  
     <b-row>
       <b-col sm="12" md="4" lg="4" class="my-1">
@@ -124,6 +133,9 @@
               console.log(error);
             });
         },    
+        create() {
+          this.$router.push({name: 'error-create'});
+        },
         onFiltered(filteredItems) {
             // Trigger pagination to update the number of buttons/pages due to filtering
             this.totalRows = filteredItems.length

@@ -15,7 +15,7 @@ class CreateSolutionsTable extends Migration
     {
         Schema::create('solutions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('error_id')->constrained()->onDelete('cascade');
+            $table->foreignId('error_id')->constrained()->cascadeOnDelete();
             $table->text('description');            
             $table->timestamps();                        
         });

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Error;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ErrorController extends Controller
 {
@@ -35,7 +36,16 @@ class ErrorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'description' => 'required',            
+        ]);       
+
+        $error = new Error();
+
+        $error->user_id = Auth::id();
+        $error->description = $request->description;        
+
+        $error->save();
     }
 
     /**
