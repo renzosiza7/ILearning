@@ -17,6 +17,23 @@ Vue.use(BootstrapVue)
 // Optionally install the BootstrapVue icon components plugin
 Vue.use(IconsPlugin)
 
+
+import Vuesax from 'vuesax'
+import 'vuesax/dist/vuesax.css'
+//Vue.use(Vuesax)
+Vue.use(Vuesax, {
+  theme:{
+    colors:{
+      primary:'#5b3cc4',
+      success:'rgb(23, 201, 100)',
+      danger:'rgb(242, 19, 93)',
+      warning:'rgb(255, 130, 0)',
+      dark:'rgb(36, 33, 69)'
+    }
+  }
+})
+import 'material-icons/iconfont/material-icons.css';
+
 Vue.use(VueRouter)
 
 import config from './config'
@@ -51,4 +68,16 @@ const app = new Vue({
     data: {                      
         ruta: config.API_URL
     }, 
+    methods: {         
+        mostrarNotificacion(titulo, color, tiempo, icono, mensaje, posicion) {
+          this.$vs.notify({
+            title: titulo,
+            color: color,
+            time: tiempo,
+            icon: icono,
+            text: mensaje,
+            position: posicion,
+          })
+        },
+    },       
 });

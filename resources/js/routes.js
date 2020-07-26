@@ -1,7 +1,7 @@
 import config from './config'
 
 import ErrorComponent from './components/ErrorComponent'
-import ErrorCreateComponent from './components/errors/CreateComponent'
+import ErrorCreateComponent from './components/errors/create'
 
 const routes = [    
     //{ path: '/', component: TramitesPage, name: 'inicio', props: { ruta: config.API_URL } },        
