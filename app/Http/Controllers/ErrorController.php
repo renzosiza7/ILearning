@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Error;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\ErrorCreateFormRequest;
 
 class ErrorController extends Controller
 {
@@ -15,7 +16,7 @@ class ErrorController extends Controller
      */
     public function index()
     {      
-        return Error::all();
+        return Error::orderByDesc('id')->get();
     }
 
     /**
@@ -34,12 +35,8 @@ class ErrorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ErrorCreateFormRequest $request)
     {
-        $this->validate($request, [
-            'description' => 'required',            
-        ]);       
-
         $error = new Error();
 
         $error->user_id = Auth::id();

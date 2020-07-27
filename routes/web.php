@@ -23,5 +23,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 //Errors
-Route::get('/error', 'ErrorController@index')->name('error')->middleware('can:admin');
-Route::post('/error/save', 'ErrorController@store')->name('error-save')->middleware('can:admin');
+Route::get('/errors', 'ErrorController@index')->name('errors.index')->middleware('can:admin');
+Route::post('/errors/store', 'ErrorController@store')->name('errors.store')->middleware('can:admin');
+

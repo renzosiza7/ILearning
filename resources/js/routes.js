@@ -1,15 +1,15 @@
 import config from './config'
 
-import ErrorComponent from './components/ErrorComponent'
+import ErrorIndexComponent from './components/errors/index'
 import ErrorCreateComponent from './components/errors/create'
 
 const routes = [    
-    //{ path: '/', component: TramitesPage, name: 'inicio', props: { ruta: config.API_URL } },        
+    { path: '/', name: 'inicio', component: ErrorIndexComponent, props: { ruta: config.API_URL } },
     //{ path: '/error', component: ErrorComponent, name: 'error', props: true },                      
-    { path: '/error', name: 'error', component: ErrorComponent, props: { ruta: config.API_URL } },     
+    { path: '/errors', name: 'errors.index', component: ErrorIndexComponent, props: { ruta: config.API_URL } },     
     {
-        path: '/error/create',
-        name: 'error-create',
+        path: '/errors/create',
+        name: 'errors.create',
         component: ErrorCreateComponent,
         props: { ruta: config.API_URL }
     },

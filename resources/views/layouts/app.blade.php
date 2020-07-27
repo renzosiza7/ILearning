@@ -26,7 +26,7 @@
             <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
             <b-collapse id="nav-collapse" is-nav>
                 <b-navbar-nav>
-                    <b-nav-item to="/error">Incidencias</b-nav-item>
+                    <b-nav-item to="/errors">Incidencias</b-nav-item>
                     <!--<b-nav-item href="#" disabled>Disabled</b-nav-item>-->
                 </b-navbar-nav>
                 <!-- Right aligned nav items -->
@@ -52,8 +52,8 @@
             </b-collapse>
         </b-navbar>
 
-        <main class="py-4">
-            @yield('content')
+        <main>            
+            @yield('content')            
         </main>
     </div>
 </body>
