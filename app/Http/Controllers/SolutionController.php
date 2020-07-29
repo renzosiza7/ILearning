@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Error;
+use App\Solution;
 use Illuminate\Http\Request;
+use App\Http\Requests\SolutionCreateFormRequest;
 
 class SolutionController extends Controller
 {
@@ -11,9 +14,9 @@ class SolutionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
+    public function index($id)
+    {        
+        return Solution::where('error_id', $id)->get();
     }
 
     /**
@@ -32,9 +35,14 @@ class SolutionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SolutionCreateFormRequest $request)
     {
-        //
+        $solution = new Solution();
+
+        $solution->error_id = $request->error_id;        
+        $solution->description = $request->description;        
+
+        $solution->save();
     }
 
     /**

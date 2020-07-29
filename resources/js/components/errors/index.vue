@@ -2,15 +2,15 @@
   <div>
     <div class="row mt-3">
       <div class="col-lg-6">
-          <h3 class="text-info">Incidencias</h3>
+          <h3 class="text-dark">Incidencias</h3>
       </div>
       <div class="col-lg-6">
-          <button class="btn btn-info float-right" @click="create">
+          <button class="btn btn-success float-right" @click="create">
                 <i class="fa fa-plus"></i>&nbsp;Nueva Incidencia
           </button>
       </div>
     </div>
-    <hr class="bg-secondary">  
+    <hr class="bg-light">  
     <b-row>
       <b-col sm="12" md="4" lg="4" class="my-1">
         <b-form-group
@@ -74,11 +74,11 @@
       @filtered="onFiltered"
       empty-text="No hay registros para mostrar"
     >    
-      <!--<template v-slot:cell(actions)="row">
-        <b-button variant="warning" size="sm" @click="showError(row.item.id)" title="Ver documento">
-          <i class="fa fa-eye"></i>
+      <template v-slot:cell(actions)="row">
+        <b-button variant="warning" size="sm" @click="show(row.item)" title="Ver soluciones">
+          <b-icon icon="card-checklist"></b-icon>
         </b-button>
-      </template>-->    
+      </template>
     </b-table>
     <b-row>
       <b-col offset-md="8" md="4" class="my-1">
@@ -96,10 +96,10 @@
 </template>
 
 <script>
-  export default {
-    props : ['ruta'],
+  export default {    
     data() {
       return {
+        url: this.$root.url,
         errors: [],        
         fields: [
           { key: 'id', label: 'ID', sortable: true, class: 'text-center' },          
@@ -122,7 +122,7 @@
           let me = this
           this.$vs.loading({ type: 'material'})
 
-          axios.get(`${this.ruta}/errors`).then(function (response) {              
+          axios.get(`${this.url}/errors`).then(function (response) {              
             me.$vs.loading.close()
             me.errors = response.data;
             me.totalRows = me.errors.length;                            
@@ -134,6 +134,9 @@
         },    
         create() {
           this.$router.push({name: 'errors.create'});
+        },
+        show(error) {
+          this.$router.push({name: 'solutions.index', params: { error: error } });
         },
         onFiltered(filteredItems) {            
           this.totalRows = filteredItems.length

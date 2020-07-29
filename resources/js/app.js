@@ -66,7 +66,7 @@ const app = new Vue({
     el: '#app',
     router,
     data: {                      
-        ruta: config.API_URL
+        url: config.API_URL
     }, 
     methods: {         
         mostrarNotificacion(titulo, color, tiempo, icono, mensaje, posicion) {

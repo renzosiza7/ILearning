@@ -28,10 +28,10 @@
 <script>
 
 export default {
-    name: 'errors.create', 
-    props : ['ruta'],
+    name: 'errors.create',     
     data() {
-      return {                                    
+      return {              
+        url: this.$root.url,                      
         description : null,
         errors : []     
       }
@@ -41,7 +41,7 @@ export default {
         let me = this 
         this.errors = []
               
-        axios.post(`${this.ruta}/errors/store`, 
+        axios.post(`${this.url}/errors/store`, 
           {
             description: this.description
           }
