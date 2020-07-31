@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Link;
 use Illuminate\Http\Request;
+use App\Http\Requests\LinkCreateFormRequest;
 
 class LinkController extends Controller
 {
@@ -11,9 +13,9 @@ class LinkController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        //
+        return Link::where('solution_id', $id)->get();
     }
 
     /**
@@ -32,9 +34,15 @@ class LinkController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(LinkCreateFormRequest $request)
     {
-        //
+        $link = new Link();
+
+        $link->solution_id = $request->solution_id;        
+        $link->url = $request->url;        
+        $link->description = $request->description;        
+
+        $link->save();
     }
 
     /**

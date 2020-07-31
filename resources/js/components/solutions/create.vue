@@ -58,7 +58,7 @@ export default {
           
           if (error.response.status == 422) {
             me.errors = Object.values(error.response.data.errors)
-            me.errors = me.errors[0]
+            me.errors =  [].concat.apply([],me.errors)
           }
           else {
             me.$root.mostrarNotificacion('Error!', 'danger', 3000, 'error_outline', 'No se pudo agregar la Solución.', 'bottom-right')

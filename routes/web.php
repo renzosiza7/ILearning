@@ -30,3 +30,6 @@ Route::post('/errors/store', 'ErrorController@store')->name('errors.store')->mid
 Route::get('/errors/{id}/solutions', 'SolutionController@index')->name('solutions.index')->middleware('can:admin');
 Route::post('/solutions/store', 'SolutionController@store')->name('solutions.store')->middleware('can:admin');
 
+//links
+Route::get('/solutions/{id}/links', 'LinkController@index')->name('links.index')->middleware('can:admin');
+Route::post('/links/store', 'LinkController@store')->name('links.store')->middleware('can:admin');
