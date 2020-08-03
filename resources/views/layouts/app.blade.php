@@ -26,8 +26,10 @@
             <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
             <b-collapse id="nav-collapse" is-nav>
                 <b-navbar-nav>
+					@auth
                     <b-nav-item to="/errors">Incidencias</b-nav-item>
                     <!--<b-nav-item href="#" disabled>Disabled</b-nav-item>-->
+					@endauth
                 </b-navbar-nav>
                 <!-- Right aligned nav items -->
                 <b-navbar-nav class="ml-auto">                                 

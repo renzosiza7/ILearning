@@ -23,13 +23,14 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 //Errors
-Route::get('/errors', 'ErrorController@index')->name('errors.index')->middleware('can:admin');
-Route::post('/errors/store', 'ErrorController@store')->name('errors.store')->middleware('can:admin');
+Route::get('/errors', 'ErrorController@index')->name('errors.index')->middleware('can:user');
+Route::post('/errors/store', 'ErrorController@store')->name('errors.store')->middleware('can:user');
+Route::put('/errors/update/{id}', 'ErrorController@update')->name('errors.update')->middleware('can:user');
 
 //Solutions
-Route::get('/errors/{id}/solutions', 'SolutionController@index')->name('solutions.index')->middleware('can:admin');
-Route::post('/solutions/store', 'SolutionController@store')->name('solutions.store')->middleware('can:admin');
+Route::get('/errors/{id}/solutions', 'SolutionController@index')->name('solutions.index')->middleware('can:user');
+Route::post('/solutions/store', 'SolutionController@store')->name('solutions.store')->middleware('can:user');
 
 //links
-Route::get('/solutions/{id}/links', 'LinkController@index')->name('links.index')->middleware('can:admin');
-Route::post('/links/store', 'LinkController@store')->name('links.store')->middleware('can:admin');
+Route::get('/solutions/{id}/links', 'LinkController@index')->name('links.index')->middleware('can:user');
+Route::post('/links/store', 'LinkController@store')->name('links.store')->middleware('can:user');

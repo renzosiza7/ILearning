@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-card title="Incidencia">
+    <b-card title="Solución">
       <b-card-text>
         {{ solution.description }}
       </b-card-text>        

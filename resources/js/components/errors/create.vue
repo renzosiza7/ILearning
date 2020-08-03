@@ -46,8 +46,7 @@ export default {
             description: this.description
           }
         ).then(function(response) {        
-          me.$root.mostrarNotificacion('Éxito!', 'success', 3000, 'done', 'Incidencia agregada correctamente.', 'bottom-right')
-          me.description = null
+          me.$root.mostrarNotificacion('Éxito!', 'success', 3000, 'done', 'Incidencia agregada correctamente.', 'bottom-right')          
           me.$router.push({name: 'errors.index'})
         }).catch(function (error) {
           console.log(error);
