@@ -74,9 +74,15 @@ class SolutionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(SolutionCreateFormRequest $request, $id)
     {
-        //
+        $solution = Solution::findOrFail($id);
+
+        $solution->description = $request->description;
+
+        $solution->save();
+
+        return $solution;
     }
 
     /**

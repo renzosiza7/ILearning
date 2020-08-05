@@ -6,7 +6,7 @@
       </div>
       <div class="col-lg-6">
           <button class="btn btn-success float-right" @click="create">
-                <i class="fa fa-plus"></i>&nbsp;Nueva Incidencia
+            <i class="fa fa-plus"></i>&nbsp;Nueva Incidencia
           </button>
       </div>
     </div>
@@ -138,8 +138,7 @@
         create() {
           this.$router.push({name: 'errors.create'});
         },        
-        edit(error) {
-          console.log(error)
+        edit(error) {          
           this.$router.push({name: 'errors.edit', params: { incidencia: error } });
         },
         show(error) {

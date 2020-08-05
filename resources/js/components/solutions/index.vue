@@ -81,7 +81,10 @@
       empty-text="No hay registros para mostrar"
     >    
       <template v-slot:cell(actions)="row">
-        <b-button variant="warning" size="sm" @click="show(row.item)" title="Ver links">
+        <b-button variant="warning" size="sm" @click="edit(row.item)" title="Editar">
+          <b-icon icon="pencil-square"></b-icon>
+        </b-button>
+        <b-button variant="info" size="sm" @click="show(row.item)" title="Ver links">
           <b-icon icon="card-checklist"></b-icon>
         </b-button>
       </template>   
@@ -143,6 +146,9 @@
         },    
         create() {
           this.$router.push({name: 'solutions.create', params: { error: this.error } });
+        },
+        edit(solution) {        
+          this.$router.push({name: 'solutions.edit', params: { solution: solution, error: this.error } });
         },
         show(solution) {
           this.$router.push({name: 'links.index', params: { solution: solution } });

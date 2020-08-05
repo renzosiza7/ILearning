@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h4 class="text-center">Nueva incidencia</h4>
+    <h4 class="text-center">Actualizar incidencia</h4>
     <div class="alert alert-danger" v-if="errors.length > 0">
       <ul>
         <li v-for="(error, index) in errors" :key="index">
@@ -18,7 +18,7 @@
           id="input-1"          
           type="text"
           v-model="incidencia.description"          
-          placeholder="Ingrese el nombre de una incidencia"
+          placeholder="Ingrese descripción"
         ></b-form-input>        
       </b-form-group>      
       <b-button type="submit" variant="success">Guardar</b-button>      

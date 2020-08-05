@@ -74,9 +74,16 @@ class LinkController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(LinkCreateFormRequest $request, $id)
     {
-        //
+        $link = Link::findOrFail($id);
+
+        $link->url = $request->url;
+        $link->description = $request->description;
+
+        $link->save();
+
+        return $link;
     }
 
     /**

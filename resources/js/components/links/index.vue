@@ -80,11 +80,11 @@
       @filtered="onFiltered"
       empty-text="No hay registros para mostrar"
     >    
-      <!--<template v-slot:cell(actions)="row">
-        <b-button variant="warning" size="sm" @click="showError(row.item.id)" title="Ver documento">
-          <i class="fa fa-eye"></i>
+      <template v-slot:cell(actions)="row">
+        <b-button variant="warning" size="sm" @click="edit(row.item)" title="Editar">
+          <b-icon icon="pencil-square"></b-icon>
         </b-button>
-      </template>-->    
+      </template>
     </b-table>
     <b-row>
       <b-col offset-md="8" md="4" class="my-1">
@@ -144,6 +144,9 @@
         },    
         create() {
           this.$router.push({name: 'links.create', params: { solution: this.solution } });
+        },
+        edit(link) {        
+          this.$router.push({name: 'links.edit', params: { link: link, solution: this.solution } });
         },
         onFiltered(filteredItems) {            
           this.totalRows = filteredItems.length
